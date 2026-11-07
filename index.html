@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brújula de la medición · Anunciantes</title>
+<meta name="description" content="Quiero entender cómo está funcionando mi publicidad: responde seis preguntas y descubre qué medir, con qué método y qué errores evitar.">
+<meta property="og:title" content="Brújula de la medición · Anunciantes">
+<meta property="og:description" content="Qué medir, con qué método y qué errores evitar. Basada en la Guía práctica de modelos de atribución y medición de la eficacia publicitaria.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="stylesheet" href="assets/estilo.css">
+</head>
+<body>
+<header class="cabecera">
+  <a href="#inicio" class="marca" aria-label="Inicio"><img src="assets/logo.png" alt="Anunciantes"></a>
+  <nav aria-label="Secciones">
+    <a class="enlace" href="#brujula">Brújula</a>
+    <a class="enlace" href="#fichas">Fichas</a>
+    <a class="enlace" href="#comparador">Comparador</a>
+    <a class="enlace" href="#mitos">¿Mito o realidad?</a>
+    <a class="enlace" href="#simulador">Simulador</a>
+    <a class="enlace" href="#evidencias">Evidencias</a>
+    <a class="enlace" href="#glosario">Glosario</a>
+    <a class="pildora boton peq" href="guia.html">Guía completa</a>
+    <button class="modo" id="modo" aria-label="Cambiar modo claro u oscuro">◐</button>
+  </nav>
+</header>
+<nav class="menu-movil" aria-label="Secciones (móvil)">
+  <a href="#brujula">Brújula</a><a href="#fichas">Fichas</a><a href="#comparador">Comparador</a><a href="#mitos">Mitos</a><a href="#simulador">Simulador</a><a href="#evidencias">Evidencias</a><a href="#glosario">Glosario</a>
+</nav>
+
+<main id="app">
+  <!-- INICIO -->
+  <section id="v-inicio" class="vista contenedor">
+    <div class="portada">
+      <p class="antetitulo" id="p-ante"></p>
+      <p class="nombre-herramienta">🧭 Brújula de la medición</p>
+      <h1 id="p-titulo"></h1>
+      <p class="intro" id="p-intro"></p>
+      <div class="acciones">
+        <a class="boton principal" href="#brujula">Empezar →</a>
+        <a class="boton" href="#fichas">Ver las fichas</a>
+      </div>
+      <div class="datos" id="p-datos"></div>
+    </div>
+    <div class="seccion">
+      <h2>Y además…</h2>
+      <div class="accesos">
+        <a class="acceso" href="#comparador"><span class="icono">⚖️</span><h3>Comparador</h3><p>Pon dos o tres métodos lado a lado: horizonte, detalle, coste, datos y capacidad causal.</p></a>
+        <a class="acceso" href="#mitos"><span class="icono">🤔</span><h3>¿Mito o realidad?</h3><p>Diez afirmaciones que se oyen en cualquier comité. ¿Cuántas aciertas?</p></a>
+        <a class="acceso" href="#simulador"><span class="icono">📈</span><h3>Simulador de curvas</h3><p>Mueve la inversión y mira cuánto rinde el siguiente euro.</p></a>
+        <a class="acceso" href="#evidencias"><span class="icono">💬</span><h3>Evidencia en una frase</h3><p>Los datos clave de la guía, listos para compartir.</p></a>
+      </div>
+      <blockquote class="idea" id="p-idea"></blockquote>
+    </div>
+  </section>
+
+  <!-- CUESTIONARIO -->
+  <section id="v-brujula" class="vista contenedor oculto">
+    <div class="cuestionario">
+      <div class="paso-num" id="q-num"></div>
+      <div class="progreso"><div id="q-barra"></div></div>
+      <div class="pregunta" id="q-cuerpo" aria-live="polite"></div>
+      <div class="navegacion">
+        <button class="volver" id="q-atras">← Anterior</button>
+        <button class="boton principal" id="q-sig" disabled>Siguiente →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTADO -->
+  <section id="v-resultado" class="vista contenedor oculto">
+    <div class="resultado" id="r-cuerpo"></div>
+  </section>
+
+  <!-- FICHAS -->
+  <section id="v-fichas" class="vista contenedor oculto">
+    <div class="seccion">
+      <p class="antetitulo">Toda la guía, en fichas de un minuto</p>
+      <h2>Fichas</h2>
+      <p class="suave">Cada ficha resume un apartado de la guía. «Saber más» te lleva directamente a ese apartado del documento.</p>
+      <div class="filtros" id="f-filtros"></div>
+      <div class="fichas" id="f-lista"></div>
+    </div>
+  </section>
+
+  <!-- COMPARADOR -->
+  <section id="v-comparador" class="vista contenedor oculto">
+    <div class="seccion">
+      <p class="antetitulo">Comparativa de metodologías</p>
+      <h2>Comparador</h2>
+      <p class="suave">Elige hasta tres métodos. Como toda simplificación, tiene excepciones, pero ayuda a ver por qué ninguno basta por sí solo.</p>
+      <div class="selector" id="c-selector"></div>
+      <div class="desliza" id="c-tabla"></div>
+      <p class="aviso" id="c-nota"></p>
+    </div>
+  </section>
+
+  <!-- MITOS -->
+  <section id="v-mitos" class="vista contenedor oculto">
+    <div class="seccion quiz">
+      <p class="antetitulo">Los errores que más se repiten</p>
+      <h2>¿Mito o realidad?</h2>
+      <div id="m-cuerpo"></div>
+    </div>
+  </section>
+
+  <!-- SIMULADOR -->
+  <section id="v-simulador" class="vista contenedor oculto">
+    <div class="seccion">
+      <p class="antetitulo">Saturación y adstock</p>
+      <h2>Simulador de curvas</h2>
+      <div class="filtros" role="tablist">
+        <button class="filtro" id="s-tab1" aria-pressed="true">Saturación: el siguiente euro</button>
+        <button class="filtro" id="s-tab2" aria-pressed="false">Adstock: el efecto que dura</button>
+      </div>
+      <div id="s-sat" class="simulador">
+        <div class="lienzo"><canvas id="s-canvas" width="760" height="440" aria-label="Curva de respuesta de ventas a la inversión"></canvas></div>
+        <div class="control">
+          <label for="s-inv"><b>Inversión semanal en un medio</b></label>
+          <input type="range" id="s-inv" min="20" max="1000" step="10" value="150">
+          <div class="kpis">
+            <div class="kpi"><b id="s-k1"></b><span>Inversión (miles de €)</span></div>
+            <div class="kpi"><b id="s-k2"></b><span>Ventas atribuidas (miles de €)</span></div>
+            <div class="kpi"><b id="s-k3"></b><span>ROI medio (€ por € invertido)</span></div>
+            <div class="kpi"><b id="s-k4"></b><span>ROI marginal (el siguiente €)</span></div>
+          </div>
+          <div class="mensaje-sim" id="s-msg"></div>
+          <p class="suave" style="font-size:13px;margin-top:12px">Curva ilustrativa, no de un anunciante real: <span style="white-space:nowrap">ventas = e<sup>A − B/inversión</sup></span>.</p>
+        </div>
+      </div>
+      <div id="s-ads" class="simulador oculto">
+        <div class="lienzo"><canvas id="s-canvas2" width="760" height="440" aria-label="Efecto de una campaña con adstock"></canvas></div>
+        <div class="control">
+          <label for="s-dec"><b>Adstock (cuánto efecto se conserva de una semana a la siguiente)</b></label>
+          <input type="range" id="s-dec" min="0" max="90" step="5" value="50">
+          <div class="kpis">
+            <div class="kpi"><b id="s-a1"></b><span>Adstock</span></div>
+            <div class="kpi"><b id="s-a2"></b><span>Efecto que llega después de la campaña</span></div>
+          </div>
+          <div class="mensaje-sim" id="s-amsg"></div>
+          <p class="suave" style="font-size:13px;margin-top:12px">Campaña ilustrativa de 4 semanas con la misma presión cada semana.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVIDENCIAS -->
+  <section id="v-evidencias" class="vista contenedor oculto">
+    <div class="seccion">
+      <p class="antetitulo">Lo que está demostrado</p>
+      <h2>Evidencia en una frase</h2>
+      <p class="suave">En un campo lleno de promesas, conviene separar lo que está demostrado de lo que simplemente suena bien. Compártelas.</p>
+      <div class="evidencias" id="e-lista"></div>
+    </div>
+  </section>
+
+  <!-- GLOSARIO -->
+  <section id="v-glosario" class="vista contenedor oculto">
+    <div class="seccion">
+      <p class="antetitulo">23 términos</p>
+      <h2>Glosario</h2>
+      <p class="suave">También aparecen al pasar el ratón (o tocar) sobre las palabras subrayadas en toda la herramienta.</p>
+      <div class="glosario-lista" id="g-lista"></div>
+    </div>
+  </section>
+
+  <!-- PRIVACIDAD -->
+  <section id="v-privacidad" class="vista contenedor oculto">
+    <div class="seccion" style="max-width:760px">
+      <h2>Privacidad</h2>
+      <p>Esta herramienta no guarda tus respuestas: todo ocurre en tu navegador y no usa cookies de seguimiento. Solo recordamos si prefieres el modo claro u oscuro.</p>
+      <p>Si nos dejas tu e-mail para descargar tu resultado, lo usaremos para enviarte novedades sobre medición de la eficacia publicitaria. Puedes darte de baja cuando quieras.</p>
+      <p class="aviso">Borrador: falta el texto legal definitivo (responsable del tratamiento, base legal y ejercicio de derechos).</p>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <img src="assets/logo.png" alt="Anunciantes">
+  <span>Basada en la <a href="guia.html">Guía práctica de modelos de atribución y medición de la eficacia publicitaria</a> · <a href="#privacidad">Privacidad</a></span>
+</footer>
+
+<!-- Ventana del e-mail -->
+<div class="modal oculto" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-tit">
+  <form class="caja" id="form-pdf" novalidate>
+    <h3 id="modal-tit">Descarga tu mapa de medición</h3>
+    <p class="suave" style="margin:0">Te lo preparamos en PDF para llevarlo al comité o a la agencia. Se abrirá la ventana de impresión: elige <b>«Guardar como PDF»</b>.</p>
+    <label for="f-email">E-mail profesional</label>
+    <input type="email" id="f-email" required autocomplete="email" placeholder="nombre@empresa.com">
+    <label for="f-empresa">Empresa <span class="suave">(opcional)</span></label>
+    <input type="text" id="f-empresa" autocomplete="organization">
+    <label class="casilla"><input type="checkbox" id="f-ok"><span id="f-legal"></span></label>
+    <div class="error" id="f-error"></div>
+    <div class="barra-final">
+      <button type="submit" class="boton principal">Exportar a PDF</button>
+      <button type="button" class="volver" id="f-cancelar">Cancelar</button>
+    </div>
+  </form>
+</div>
+
+<div id="informe"></div>
+
+<script src="contenido.js"></script>
+<script src="glosario.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
