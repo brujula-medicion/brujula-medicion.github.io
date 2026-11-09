@@ -120,7 +120,7 @@ const FICHAS = [
       ['Necesitas', 'Recorridos digitales con consentimiento y volumen suficiente de conversiones.']
     ],
     ejemplo: 'Predecir muy bien quién va a comprar no dice qué anuncio le hizo comprar: los usuarios con más intención de compra son también los que más anuncios ven y más clics hacen.',
-    luz: { funciona: 0, cuanto: 1, mejor: 2, reparto: 0 }
+    luz: { funciona: 0, cuanto: 0, mejor: 2, reparto: 0 }
   },
   {
     id: 'mmm', tipo: 'Método', tema: 'MMM', titulo: 'Marketing Mix Modeling (MMM)',
@@ -144,7 +144,7 @@ const FICHAS = [
       ['Necesitas', 'Un MMM con curvas de saturación por medio.']
     ],
     ejemplo: 'La saturación explica por qué un medio puede tener un retorno medio alto y un retorno marginal (el del siguiente euro) bajo. Pruébalo en el simulador.',
-    luz: { funciona: 1, cuanto: 2, mejor: 1, reparto: 2 }
+    luz: { funciona: 0, cuanto: 2, mejor: 1, reparto: 2 }
   },
   {
     id: 'largo', tipo: 'Método', tema: 'MMM', titulo: 'Medir el largo plazo',
